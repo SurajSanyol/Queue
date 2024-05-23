@@ -1,0 +1,28 @@
+#include<queue>
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Hello world!" << endl;
+
+  queue<int>q;
+ 
+ q.push(10);
+ q.push(20);
+ q.push(30);  
+ q.push(40);
+
+cout<<"size of the Queue :"<<q.size()<<endl;
+
+cout<<"print the front :"<<q.front()<<endl;
+
+cout<<"print the rear element:"<<q.back()<<endl;
+
+q.pop();
+cout<<"print the rear after pop element:"<<q.back()<<endl;
+
+
+
+
+  return 0;
+}

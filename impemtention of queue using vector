@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+
+class Queue{
+
+   public:
+    
+    int size,front,rear;
+    int *arr;
+
+    Queue( int size){
+          this->size=size;
+          arr = new int[size];
+          front =0;
+          rear=0;
+    }
+
+    // psuh function
+
+    void push(int data)
+    {
+        if(rear==size)
+        {
+          cout<<"Queue is full";
+        }
+        else
+        {
+           arr[rear]=data;
+           rear++;
+        }
+    }
+    
+
+    // pop function
+     void pop()
+     {
+        if(rear==front)
+        {
+          cout<<"Queue is empty";
+
+        }
+        else{
+                arr[front]=-1;
+                front++;
+
+                if(front==rear)
+                {
+                   front=0;
+                   rear=0;
+                }
+        }
+     }
+
+     // get front element
+
+     int getFront()
+     {
+         if(front==rear)
+         {
+             cout<<"Queue is empty";
+         }
+         else{
+            return arr[front];
+         }
+     }
+
+
+     // check queue is empty or not 
+      bool isEmpty(){
+            if(rear==front)
+            return true;
+            else
+              return false;
+      }
+
+      // get size of queue
+
+      int getSize(){
+             return rear-front;
+      }
+
+};
+
+int main() {
+  cout << "Hello world!" << endl;
+
+  Queue q(5);
+
+  q.push(10);
+  q.push(20);
+  q.push(30);
+  q.push(40);
+
+  cout<<"get the size of the Queue:"<<q.getSize()<<endl;
+  q.pop();
+  
+  cout<<"get the size of the Queue:"<<q.getSize()<<endl;
+
+  cout<<"is empty queue "<<q.isEmpty()<<endl;
+   
+  return 0;
+}

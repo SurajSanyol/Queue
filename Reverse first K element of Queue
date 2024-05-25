@@ -1,0 +1,66 @@
+#include <iostream>
+#include<stack>
+#include<queue>
+using namespace std;
+
+void reverseKTimeQueue(queue<int>&q,stack<int>&s,int k)
+{
+      int sizeofQueue = q.size();
+
+      if(k==0 || k>sizeofQueue)
+      {  
+         cout<<"please enter valid value of k:";
+         return;
+      }
+
+
+      int kTimes = k;
+      while(kTimes)
+      {
+         s.push(q.front());
+         q.pop();
+         kTimes--;
+      }  
+
+      while(!s.empty())
+      {
+          q.push(s.top());
+          s.pop();
+      }
+      
+      int restElement = sizeofQueue-k;
+      while(restElement && restElement!=0)
+      {
+          q.push(q.front());
+          q.pop();
+          restElement--;
+      }
+
+}
+
+int main() {
+  cout << "Hello world!" << endl;
+    
+    stack<int>s;
+    queue<int>q;
+    int k= 2;
+    q.push(10);
+    q.push(20);
+    q.push(35);
+    q.push(40);
+    q.push(60);    
+
+    reverseKTimeQueue(q,s,k);
+
+    cout<<endl;
+    
+    cout<<"print the element of the queue  :  ";
+
+    while(!q.empty())
+    {
+      cout<<q.front()<<" ";
+      q.pop();
+    }
+    
+  return 0;
+}
